@@ -2,23 +2,36 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+import TableStatus from './admin/TableStatus';
+import TableHistory from './admin/TableHistory';
+import TableBooking from './admin/TableBooking';
+import TableCheckIn from './admin/TableCheckIn';
+import TablePayment from './admin/TablePayment';
+import FinishBooking from './FinishBooking';
+import Confirm from './Confirm';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       {/* <div>confirm</div> */}
+      {/* <Confirm/>  */}
+      {/* <div>status</div>
+      <TableStatus/>
+      <div>history</div>
+      <TableHistory/> 
+      <div>payment</div>
+      <TablePayment/> */}
+      {/* <div>Booking</div> */}
+      {/* <TableCheckIn/> */}
+      <FinishBooking/>
+      {/* <ConfirmBooking/> */}
+      {/* <HomePage/> */}
+      {/* {<BookingPage/> } */}
+      {/* <Signin/> */}
+      {/* <Booking/> */}
+      {/* <ImageUpload/> */}
+    
     </div>
   );
 }

@@ -1,0 +1,59 @@
+.AddInfoPage{
+    background-color : #E7EAE6;
+}
+
+
+.fieldInputTitle{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    justify-content: flex-start; 
+    padding-bottom: 2%;
+    align-content: flex-start;
+
+}
+
+.InputInFoForSell {
+    margin-left: 32.5%;
+    width: 25%;
+    padding-bottom: 1.5%;
+}
+
+.UploadButton {
+    padding-top: 2.1% ;
+    padding-left: 47.3%;
+}
+
+.SumbitButton {
+    padding-top: 3%;
+    padding-bottom: 5%;
+    padding-left: 47.3%;
+
+
+}
+#setimgfoot{
+    width: 100%;
+ }
+ 
+ #headbookct{
+    margin-top: 2%;
+    margin-left: 30%;
+    width: 40%;
+ }
+ #loginName{
+    text-align: right;
+    padding-right: 1.5%;
+    background-color: #0a665a;
+    color: white;
+    text-shadow: 3px 2px rgb(199, 132, 9);
+}
+
+/* #Topic {
+    color: #239B56;
+    font-size: 300%;
+    font-family: Arial, Helvetica, sans-serif;
+} */
