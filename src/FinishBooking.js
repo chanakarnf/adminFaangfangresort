@@ -38,7 +38,6 @@ class FinishBooking extends React.Component{
     ];
   
         return (
-            
             <Result
             icon={<Icon type="smile" theme="twoTone" />}
             title="ขั้นตอนการชำระเงิน"

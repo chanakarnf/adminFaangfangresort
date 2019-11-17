@@ -10,7 +10,6 @@ class FinishPayment extends React.Component{
         return (
             
                 <Result
-    
                 status="success"
                 title="การจองเสร็จสิ้น"
                 subTitle="ระบบจะทำการเก็บข้อมูลการจองที่พักของท่าน ขอบคุณที่เลือกใช้บริการรีสอร์ทของเรา "

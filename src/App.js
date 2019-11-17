@@ -15,22 +15,27 @@ function App() {
   return (
     <div className="App">
        {/* <div>confirm</div> */}
-      {/* <Confirm/>  */}
-      {/* <div>status</div>
-      <TableStatus/>
+      <Confirm/> 
+      <div>status</div>
+       <TableStatus/>
       <div>history</div>
+      
       <TableHistory/> 
       <div>payment</div>
-      <TablePayment/> */}
-      {/* <div>Booking</div> */}
-      {/* <TableCheckIn/> */}
-      <FinishBooking/>
+      <TablePayment/> 
+      <div>Booking</div>
+      <TableBooking/>
+      
+      {/* <TableBooking/> */}
+      {/* <TablePayment/>  */}
+      <TableCheckIn/>
+      {/* <FinishBooking/>  */}
       {/* <ConfirmBooking/> */}
       {/* <HomePage/> */}
       {/* {<BookingPage/> } */}
       {/* <Signin/> */}
       {/* <Booking/> */}
-      {/* <ImageUpload/> */}
+      {/* <ImageUpload/>*/}
     
     </div>
   );

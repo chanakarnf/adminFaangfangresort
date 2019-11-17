@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import "antd/dist/antd.css";
 import { storage } from '../firebase';
-import { Form, Select, Table, Modal } from 'antd';
+import { Form, Select, Table, Modal,message } from 'antd';
 import firebase from '../firebase';
 import axios from 'axios';
 const { Option } = Select;
-var delayInMilliseconds = 4000; 
+var delayInMilliseconds = 2000; 
 const { confirm } = Modal;
 const db = firebase.firestore();
 class TablePayment extends React.Component {
@@ -14,13 +14,9 @@ class TablePayment extends React.Component {
     this.state = {
       allData: [],
       assignRoom: "",
-
-
     }
-
   }
   componentDidMount() {
-
     let wholeData = [];
     axios.get('/findAllReceiptInfo').then(resp => {
       resp.data.forEach(element => {
@@ -39,10 +35,16 @@ class TablePayment extends React.Component {
     })
     console.log(wholeData)
   }
+  success = () => {
+    message
+      .loading('Action in progress..', 1)
+      .then(() => message.success('กำลังบันทึก', 2))
+      .then(() => message.info('Loading finished is finished', 2));
+  };
   onChangeSelect = (value, record) => {
     confirm({
-      title: 'Do you want to delete these items?',
-      content: 'When clicked the OK button, this dialog will be closed after 1 second',
+      title: 'ยืนยันการเปลี่ยนแปลง​ ?',
+      content: '',
       onOk: () => {
         return new Promise((resolve, reject) => {
           const phoneNum = record.phoneNum;
@@ -54,6 +56,10 @@ class TablePayment extends React.Component {
               console.log(resp);
               if (resp.status === 200) {
                 resolve();
+                this.success();
+                setTimeout(function() {
+                  window.location.reload()
+                 }, delayInMilliseconds);
               }
             }).catch(e => {
               reject(value = e)
@@ -77,6 +83,7 @@ class TablePayment extends React.Component {
                 console.log("delay");
                 if (resp.status === 200) {
                   resolve();
+                  this.success();
                   setTimeout(function() {
                     window.location.reload()
                   }, delayInMilliseconds);
@@ -87,8 +94,6 @@ class TablePayment extends React.Component {
               })
               
             }
-            
-
           else if (value === "ไม่เข้าพัก") {
             //axios.put(`/updateStatusRec/${phoneNum}`, ({ status }))
             axios.get(`/findCustomerByPhone/${phoneNum}`).then(resp => {
@@ -104,9 +109,10 @@ class TablePayment extends React.Component {
               axios.delete(`/deleteCustomerByPhone/${phoneNum}`).then(resp => {
                 if (resp.status === 200) {
                   resolve();
-                  setTimeout(function() {
-                    window.location.reload()
-                  }, delayInMilliseconds);
+                  this.success();
+                 setTimeout(function() {
+                  window.location.reload()
+                 }, delayInMilliseconds);
                 }
               }).catch(e => {
                 reject(value = e)
@@ -118,15 +124,14 @@ class TablePayment extends React.Component {
           axios.delete(`/deleteReceiptInfoByPhone/${phoneNum}`).then(resp => {
               if (resp.status === 200) {
                 resolve();
+                this.success();
                 setTimeout(function() {
                   window.location.reload()
-                }, delayInMilliseconds);
+                 }, delayInMilliseconds);
               }
             }).catch(e => {
               reject(value = e);
-            })
-           
-          
+            })         
       }
           // const tmpAllData = this.state.allData;
           //   tmpAllData.map(element => {
@@ -172,11 +177,7 @@ class TablePayment extends React.Component {
           <Option value="การชำระเงินไม่ถูกต้อง">การชำระเงินไม่ถูกต้อง</Option>
           <Option value="ไม่เข้าพัก">ไม่เข้าพัก</Option>
         </Select>
-
-
       },
-
-
     ];
 
     return (
@@ -189,13 +190,9 @@ class TablePayment extends React.Component {
             }
             dataSource={this.state.allData}
           />
-
-
         </div>
-
       </div>
     )
   }
 }
-
 export default Form.create()(TablePayment);
